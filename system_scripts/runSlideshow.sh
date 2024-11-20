@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DISPLAY=:0
+
 # Define the repository directory
 REPO_DIR="/home/uoflit/Desktop/slideshows"
 
