@@ -1,0 +1,13 @@
+[Unit]
+Description=Slideshow for UofL
+After=graphical.target
+PartOf=graphical.target
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=uoflit
+ExecStart=/home/uoflit/Desktop/runSlideshow.sh
+
+[Install]
+WantedBy=multi-user.target
