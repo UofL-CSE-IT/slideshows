@@ -32,8 +32,9 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     pkill -f "firefox.*--kiosk"
 
     # Start Firefox in kiosk mode
-    /usr/bin/firefox --kiosk "file://$WEBPAGE_PATH" &>/dev/null &
 else
     echo "No updates detected."
 fi
+
+nohup firefox --kiosk "file://$WEBPAGE_PATH" &>/dev/null &
 
