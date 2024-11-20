@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the repository directory
-REPO_DIR="~/Desktop/slideshows"
+REPO_DIR="home/uoflit/Desktop/slideshows"
 
 # Define the path to the local webpage
 WEBPAGE_PATH="$REPO_DIR/main_desk_slideshow/index.html"
