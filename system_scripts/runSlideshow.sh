@@ -24,7 +24,7 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     # Reload the Firefox kiosk mode
     echo "Reloading webpage..."
     pkill -f "firefox.*--kiosk" # Kill the existing Firefox instance
-    nohup firefox --kiosk "file://$WEBPAGE_PATH" &>/dev/null &
+    nohup firefox --kiosk "file://$WEBPAGE_PATH" &>/dev/null & 
 else
     echo "No updates detected."
 fi
