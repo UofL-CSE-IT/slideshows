@@ -9,7 +9,7 @@ WEBPAGE_PATH="$REPO_DIR/main_desk_slideshow/index.html"
 
 # Navigate to the repository directory
 cd "$REPO_DIR" || exit
-
+echo "Navigated to the repository directory."
 # Fetch the latest changes
 git fetch
 
