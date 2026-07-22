@@ -1,0 +1,10 @@
+[Unit]
+Description=Check slideshow video for updates every 5 minutes
+
+[Timer]
+OnStartupSec=30sec
+OnUnitActiveSec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

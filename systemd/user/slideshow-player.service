@@ -1,0 +1,13 @@
+[Unit]
+Description=Loop slideshow video in VLC
+After=graphical-session.target
+ConditionPathExists=%h/slideshows/current.mp4
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/vlc --fullscreen --loop --no-video-title-show --no-osd --quiet %h/slideshows/current.mp4
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Check for updated slideshow video
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/slideshow-update

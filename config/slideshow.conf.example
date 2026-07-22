@@ -1,0 +1,9 @@
+# Remote file containing the SHA-256 hash for the MP4.
+# This may be a plain hash or standard sha256sum output.
+REMOTE_HASH_URL="https://d1islv726as79.cloudfront.net/slideshow/hash.txt"
+
+# Remote MP4 file to download when the hash changes.
+REMOTE_VIDEO_URL="https://d1islv726as79.cloudfront.net/slideshow/current.mov"
+
+# Optional: increase if the network connection is unreliable.
+DOWNLOAD_RETRIES="3"
