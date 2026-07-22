@@ -20,7 +20,7 @@ The services are intended to run as the desktop user that is logged into the dis
 | `scripts/install-slideshow.sh` | One-time installer for the display device |
 | `scripts/slideshow-update.sh` | Downloads and verifies updated videos |
 | `scripts/slideshow-session-start.sh` | Auto-login bootstrap that imports the desktop environment and starts the services |
-| `config/slideshow.conf.example` | Local device configuration template |
+| `config/slideshow.conf` | Slideshow URL and download settings |
 | `systemd/user/slideshow-player.service` | Runs VLC fullscreen and looped |
 | `systemd/user/slideshow-update.service` | One-shot update check |
 | `systemd/user/slideshow-update.timer` | Runs the update check on boot and every 5 minutes |
@@ -37,15 +37,13 @@ The hash in `hash.txt` must match the MP4 available at the configured video URL.
 
 ### Install on the Ubuntu display device
 
-Run this once from the repository checkout as the default desktop user that auto-logs in:
+Update `config/slideshow.conf` with the remote `hash.txt` and video URLs, then run this once from the repository checkout as the default desktop user that auto-logs in:
 
 ```bash
-./scripts/install-slideshow.sh \
-  --hash-url "https://your-server/path/hash.txt" \
-  --video-url "https://your-server/path/slideshow.mp4"
+./scripts/install-slideshow.sh
 ```
 
-The installer copies the scripts and systemd user units into the auto-login user's home directory, installs `vlc` and `curl`, writes `~/.config/slideshow/slideshow.conf`, enables the timer, and creates `~/.config/autostart/slideshow-session.desktop`. On future boots, the desktop auto-login starts the bootstrap script, the bootstrap script starts the timer/update service, and VLC starts or restarts as needed. If the network is unavailable but a previously downloaded video exists, the cached video still starts.
+The installer copies the scripts, `config/slideshow.conf`, and systemd user units into the auto-login user's home directory, installs `vlc`, `curl`, and `flock`, enables the timer, and creates `~/.config/autostart/slideshow-session.desktop`. On future boots, the desktop auto-login starts the bootstrap script, the bootstrap script starts the timer/update service, and VLC starts or restarts as needed. If the network is unavailable but a previously downloaded video exists, the cached video still starts.
 
 By default, the local video is stored at `~/slideshows/current.mp4`. If you change that path in `scripts/slideshow-update.sh`, also update `systemd/user/slideshow-player.service`.
 
