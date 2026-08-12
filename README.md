@@ -6,7 +6,7 @@ Slideshows Displayed on Department Displays
 This repository includes a systemd user-service setup for an Ubuntu display device that:
 
 - starts automatically when the default desktop user auto-logs in;
-- checks a remote `hash.txt` file at login and every 5 minutes;
+- checks a remote `hash.txt` file at login and every 2 minutes;
 - downloads a new MP4 only when the hash changes;
 - verifies the downloaded MP4 with SHA-256 before replacing the local copy;
 - restarts VLC in fullscreen loop mode after a successful update.
@@ -23,7 +23,7 @@ The services are intended to run as the desktop user that is logged into the dis
 | `config/slideshow.conf` | Slideshow URL and download settings |
 | `systemd/user/slideshow-player.service` | Runs VLC fullscreen and looped |
 | `systemd/user/slideshow-update.service` | One-shot update check |
-| `systemd/user/slideshow-update.timer` | Runs the update check on boot and every 5 minutes |
+| `systemd/user/slideshow-update.timer` | Runs the update check on boot and every 2 minutes |
 
 ### Prepare the remote files
 

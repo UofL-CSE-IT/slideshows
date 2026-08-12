@@ -1,9 +1,9 @@
 [Unit]
-Description=Check slideshow video for updates every 5 minutes
+Description=Check slideshow video for updates every 2 minutes
 
 [Timer]
 OnStartupSec=30sec
-OnUnitActiveSec=5min
+OnUnitActiveSec=2min
 Persistent=true
 
 [Install]
